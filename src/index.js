@@ -8,8 +8,15 @@ dotenv.config({
 // as this is new feature. add "-r dotenv/config --experimental-json-modules" in dev script in package.json to load all env variable at the start
 // -r means red flag because we are using experimental feature (this whole thing will be automatically in the future)
 
-connectDB();
-
+connectDB()
+.then(() => {
+    app.listen(process.env.PORT || 8000, () => {
+        console.log(`server is runninf at server: ${process.env.PORT}`)
+    })
+})
+.catch((err) => {
+    console.log("MongoDb connection failed !!!", err)
+})
 
 
 
