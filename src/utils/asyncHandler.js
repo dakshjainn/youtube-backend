@@ -5,7 +5,7 @@ const asyncHandler = (fn) => {
     }
 }
 
-
+export {asyncHandler};
 
 /* using try catch
 
